@@ -1,10 +1,16 @@
+-- workspace
+
 workspace "CutOfMeal"
+
+defines { "WORKSPACE" }
 configurations { "Debug", "Release" }
 location "../Build"
 
-defines { "WORKSPACE" }
+-- engine
 
 project "Engine"
+
+defines { "ENGINE" }
 kind "ConsoleApp"
 language "C++"
 location "../Build/Engine"
@@ -18,4 +24,10 @@ files {
   source_path .. "**.cpp"
 }
 
-defines { "ENGINE" }
+filter { "configurations:Debug" }
+defines { "DEBUG" }
+targetdir "Bin/Debug"
+
+filter { "configurations:Release" }
+defines { "RELEASE" }
+targetdir "Bin/Release"
