@@ -3,7 +3,7 @@
 workspace "CutOfMeal"
 
 defines { "WORKSPACE" }
-configurations { "Debug", "Release" }
+configurations { "Debug64", "Release64" }
 location "../Build"
 
 -- engine
@@ -24,10 +24,12 @@ files {
   source_path .. "**.cpp"
 }
 
-filter { "configurations:Debug" }
+filter { "configurations:Debug64" }
 defines { "DEBUG" }
+architecture "x86_64"
 targetdir "../Bin/Debug"
 
-filter { "configurations:Release" }
+filter { "configurations:Release64" }
 defines { "RELEASE" }
+architecture "x86_64"
 targetdir "../Bin/Release"
