@@ -13,21 +13,21 @@ project "Engine"
 defines { "ENGINE" }
 kind "ConsoleApp"
 language "C++"
-location "../Build/Engine"
+location "../Build"
 
-local source_path = "../Build/"
+local source_path = "../Source/"
 
 files {
-  source_path .. "*.h",
-  source_path .. "*.hpp",
-  source_path .. "*.c",
+  source_path .. "**.h",
+  source_path .. "**.hpp",
+  source_path .. "**.c",
   source_path .. "**.cpp"
 }
 
 filter { "configurations:Debug" }
 defines { "DEBUG" }
-targetdir "Bin/Debug"
+targetdir "../Bin/Debug"
 
 filter { "configurations:Release" }
 defines { "RELEASE" }
-targetdir "Bin/Release"
+targetdir "../Bin/Release"
